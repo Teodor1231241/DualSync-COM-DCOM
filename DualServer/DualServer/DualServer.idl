@@ -1,0 +1,48 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+// Interface implemented in client
+[
+    object,
+    uuid(282A2502-9BD8-11D6-8326-525405C258FC), // Change this GUID
+    helpstring("ICallback Interface")
+]
+interface ICallback : IUnknown
+{
+    [helpstring("method Awake")] HRESULT Awake(long lVal);
+};
+
+// Main interface - ONLY DECLARE THIS ONCE
+[
+    object,
+    uuid(E543326A-A767-433C-8FFC-AC24EC6B66D3), // Change this GUID
+    pointer_default(unique),
+    helpstring("ISimple Interface")
+]
+interface ISimple : IUnknown
+{
+    [helpstring("method Now")] HRESULT Now([in] LONG lCode);
+    [helpstring("method Later")] HRESULT Later([in] LONG lCode);
+    [helpstring("method Advise")] HRESULT Advise([in] ICallback* pCallback, [out] LONG* lCookie);
+    [helpstring("method UnAdvise")] HRESULT UnAdvise([in] LONG lCookie);
+};
+
+[
+    uuid(16863747-CBD4-4431-A406-0FFDB2A65C65), // Change this GUID
+    version(1.0),
+    helpstring("DualServer 1.0 Type Library")
+]
+library DualServerLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+    [
+        uuid(3A4B6D8F-1C2D-4E5F-A8B7-6C9D0E1F2B3A), // Change this GUID
+        helpstring("Simple Class")
+    ]
+        coclass Simple
+    {
+        [default] interface ISimple;
+    };
+};

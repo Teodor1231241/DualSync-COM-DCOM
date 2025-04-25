@@ -1,0 +1,7 @@
+﻿  Checking for required files
+  dlldata.c
+  DualServer_i.c
+  DualServer_p.c
+  Generating Code...
+     Creating library C:\Users\Teddy\source\repos\DualServer\x64\Debug\DualServerPS.lib and object C:\Users\Teddy\source\repos\DualServer\x64\Debug\DualServerPS.exp
+  DualServerPS.vcxproj -> C:\Users\Teddy\source\repos\DualServer\x64\Debug\DualServerPS.dll
